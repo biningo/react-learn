@@ -18,8 +18,9 @@ Hello.defaultProps = {
 
 class WebSite extends React.Component {
 
-    constructor(props) {
+    constructor(props) { //props不可以更改，state可以更改
         super(props);
+        
         this.state = {
             name: "Baidu",
             site: "http://www.baidu.com"
