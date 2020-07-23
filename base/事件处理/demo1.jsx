@@ -30,7 +30,7 @@ class Toggle extends React.Component {
         }));
     }
 
-    //匿名函数不需要绑定this
+    //箭头函数不需要绑定this
     handleClick2  = ()=>{
         alert("click2"+this.state.Flag);
     }
