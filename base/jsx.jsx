@@ -34,9 +34,17 @@ class NumberList extends React.Component{
 
 
 
+const MyComponents = {
+    DatePicker: function(props){
+    return <div>{props.username}-{props.age}</div>
+    }
+}
+const prop = {username:"bingo",age:18}
 ReactDOM.render(
     <div>
         <NumberList numbers={[1,2,3,4,5]} ></NumberList>
+        {/* 子组件  以及展开表达式*/}
+        <MyComponents.DatePicker {...prop} ></MyComponents.DatePicker> 
     </div>,
     document.getElementById("root")
 )
