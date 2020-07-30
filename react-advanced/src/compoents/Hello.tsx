@@ -5,6 +5,7 @@ import App3 from "./fragments-demo/App3";
 import App4 from "./hook-demo/App4";
 import App5 from "./hook-demo/App5";
 import App6 from "./hook-demo/ContextHook";
+import App7 from "./hook-demo/OtherHook";
 
 export default class Hello extends React.Component{
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
@@ -18,6 +19,7 @@ export default class Hello extends React.Component{
                     <App4/>
                     <App5 username={'None'} age={0}/>
                     <App6/>
+                    <App7/>
                 </h1>
             </div>
         );
