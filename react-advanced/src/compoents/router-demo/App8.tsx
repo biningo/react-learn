@@ -8,11 +8,14 @@ import FormDemo from "./FormDemo";
 import NoMatchDemo from "./NoMatchDemo";
 import RescursiveExample from "./dfsRoute";
 import SidebarExample from "./Sidebar";
+import RouteConfigExample from "./子路由";
 
 
 const App8 = () => {
     return (
         <div>
+            <RouteConfigExample/>
+            <hr/>
             <SidebarExample/>
             <hr/>
             <RescursiveExample/>
