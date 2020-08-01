@@ -5,12 +5,15 @@ import NestingExample from "./Nesting";
 import AuthExample from "./Redirect(Auth)";
 import CustomLinkExample from "./CustomLink";
 import FormDemo from "./FormDemo";
+import NoMatchDemo from "./NoMatchDemo";
 
 
 
 const App8 = ()=>{
     return (
         <div>
+            <NoMatchDemo/>
+            <hr />
             <BasicExample/>
             <hr />
             <ParamsExample/>
@@ -22,6 +25,8 @@ const App8 = ()=>{
             <CustomLinkExample/>
             <hr />
             <FormDemo/>
+
+
         </div>
     )
 };
