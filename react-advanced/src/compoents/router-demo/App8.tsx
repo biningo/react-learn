@@ -6,24 +6,26 @@ import AuthExample from "./Redirect(Auth)";
 import CustomLinkExample from "./CustomLink";
 import FormDemo from "./FormDemo";
 import NoMatchDemo from "./NoMatchDemo";
+import RescursiveExample from "./dfsRoute";
 
 
-
-const App8 = ()=>{
+const App8 = () => {
     return (
         <div>
+            <RescursiveExample/>
+            <hr/>
             <NoMatchDemo/>
-            <hr />
+            <hr/>
             <BasicExample/>
-            <hr />
+            <hr/>
             <ParamsExample/>
-            <hr />
+            <hr/>
             <NestingExample/>
-            <hr />
+            <hr/>
             <AuthExample/>
-            <hr />
+            <hr/>
             <CustomLinkExample/>
-            <hr />
+            <hr/>
             <FormDemo/>
 
 
