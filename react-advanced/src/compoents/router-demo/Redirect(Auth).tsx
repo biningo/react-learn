@@ -17,35 +17,35 @@ const ProtectedPage = () => {
     return <h1>ProtectedPage</h1>
 };
 
-interface IAuth {
-    isAuthenticated:boolean
-}
+
 
 
 
 interface IProps {
-    fakeAuth:IAuth
+    isLogin:boolean,
+    changeLogin:any
 }
 
 // @ts-ignore
-const PrivateRoute = ({children,fakeAuth, ...rest}) => {
+const PrivateRoute = ({children,isLogin, ...rest}) => {
     return (
         <Route
             {...rest}
             render={({location}) =>
-                fakeAuth.isAuthenticated ? children : (
+                isLogin ? children : (
                     <Redirect to={{pathname: '/login', state: {from: location}}}/>)}/>)
 };
 
-const LoginPage = (props:IProps) => {
+const LoginPage = (props:{changeLogin:any}) => {
     let history = useHistory();
     let location = useLocation();
 
+    const changeLogin = props.changeLogin;
 
     let {from}: any = location.state || {from: {pathname: '/'}};
 
     let login = () => {
-        props.fakeAuth.isAuthenticated=true;
+        changeLogin(true);
         history.replace(from) //回到原来的页面
     };
 
@@ -62,13 +62,13 @@ const LoginPage = (props:IProps) => {
 
 const AuthButton = (props:IProps)=>{
   let history = useHistory();
-  const [fakeAuth,setfakeAuth] =useState(props.fakeAuth);
-
-  return fakeAuth.isAuthenticated?(
+  const isLogin = props.isLogin;
+  const changeLogin = props.changeLogin;
+  return isLogin?(
       <div>
       <p>Welcome!</p>
           <button onClick={()=>{
-              setfakeAuth({isAuthenticated:false});
+              changeLogin(false);
               history.push("/")
           }} >SigOut</button>
       </div>
@@ -78,14 +78,12 @@ const AuthButton = (props:IProps)=>{
 };
 
 const AuthExample = () => {
-    const fakeAuth:IAuth = {
-        isAuthenticated:false
-    };
+    const [isLogin,setisLogin] = useState(false);
     return (
         <div>
 
             <Router>
-                <AuthButton fakeAuth={fakeAuth} />
+                <AuthButton isLogin={isLogin} changeLogin={setisLogin} />
                 <ul>
                     <li>
                         <Link to={'/public'}>Public Page</Link>
@@ -104,11 +102,11 @@ const AuthExample = () => {
 
 
                     <Route path={'/login'}>
-                        <LoginPage fakeAuth={fakeAuth} />
+                        <LoginPage  changeLogin={setisLogin} />
                     </Route>
 
 
-                    <PrivateRoute fakeAuth={fakeAuth}  path={'/protected'}>
+                    <PrivateRoute isLogin={isLogin}  path={'/protected'}>
                         <ProtectedPage  />
                     </PrivateRoute>
 
