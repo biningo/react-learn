@@ -7,11 +7,14 @@ import CustomLinkExample from "./CustomLink";
 import FormDemo from "./FormDemo";
 import NoMatchDemo from "./NoMatchDemo";
 import RescursiveExample from "./dfsRoute";
+import SidebarExample from "./Sidebar";
 
 
 const App8 = () => {
     return (
         <div>
+            <SidebarExample/>
+            <hr/>
             <RescursiveExample/>
             <hr/>
             <NoMatchDemo/>
