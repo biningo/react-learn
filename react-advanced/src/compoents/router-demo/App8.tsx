@@ -9,11 +9,14 @@ import NoMatchDemo from "./NoMatchDemo";
 import RescursiveExample from "./dfsRoute";
 import SidebarExample from "./Sidebar";
 import RouteConfigExample from "./子路由";
+import QueryParamsExample from "./QueryParameters";
 
 
 const App8 = () => {
     return (
         <div>
+            <QueryParamsExample/>
+            <hr/>
             <RouteConfigExample/>
             <hr/>
             <SidebarExample/>
